@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block title %}Scan Your Product{% endblock %}
+
+{% block body %}
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {% block extra_css %}
+        <style>
+            /* Specific Styles for the Upload Page */
+            .upload-container-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                padding: 20px;
+                background-color: #f9f9f9;
+            }
+
+            .upload-container {
+                background-color: white;
+                border-radius: 10px;
+                padding: 30px;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .upload-container h1 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .upload-container form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* File Input Styles */
+            .upload-container .custom-file-input {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: 2px solid #4caf50;
+                border-radius: 5px;
+                padding: 10px;
+                background-color: #fff;
+                margin-bottom: 15px;
+                cursor: pointer;
+            }
+
+            .upload-container #file-input {
+                display: none;
+            }
+
+            .upload-container .custom-file-button {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+
+            .upload-container .custom-file-button:hover {
+                background-color: #45a049;
+            }
+
+            /* Scan Button Styles */
+            .upload-container button[type="submit"] {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                border: none;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            .upload-container button[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+            /* Success Message */
+            .upload-container .upload-success {
+                display: none;
+                color: #4caf50;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+
+            /* Ingredients Output Styles */
+            .upload-container h2 {
+                font-size: 1.5em;
+                margin-top: 30px;
+            }
+
+            .upload-container pre {
+                background-color: #f5f5f5;
+                padding: 15px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                text-align: left;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                max-height: 200px;
+                overflow-y: auto;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 600px) {
+                .upload-container {
+                    padding: 20px;
+                }
+            }
+        </style>
+    {% endblock %}
+
+    <div class="upload-container-wrapper">
+        <div class="upload-container">
+            <h1>Upload Your Product Image</h1>
+            <form id="upload-form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="custom-file-input">
+                    <input type="file" name="file" id="file-input" required>
+                    <button type="button" class="custom-file-button">Choose File</button>
+                </div>
+                <div class="upload-success" id="upload-success">File uploaded successfully!</div>
+                <br><br>
+                <button type="submit">Scan</button>
+            </form>
+            
+            <h2>Harmful Ingredients:</h2>
+            <pre id="output"></pre>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Trigger file input when custom button is clicked
+            $('.custom-file-button').on('click', function() {
+                $('#file-input').click();
+            });
+
+            // Handle file selection immediately
+            $('#file-input').on('change', function() {
+                const fileName = $(this).val().split('\\').pop();
+                if (fileName) {
+                    $('#upload-success').show(); // Show success message when file is selected
+                } else {
+                    $('#upload-success').hide(); // Hide success message if no file is selected
+                }
+            });
+
+            // Handle form submission and file upload
+            $('#upload-form').on('submit', function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+
+                $.ajax({
+                    url: "{% url 'upload_and_scan_image' %}",
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        console.log(data); // Log response for debugging
+                        if (data.extracted_text) {
+                            $('#output').text(data.extracted_text);
+                            $('#upload-success').show(); // Show success message if data is present
+                        } else {
+                            $('#output').text('No harmful ingredients detected.');
+                            $('#upload-success').hide(); // Hide success message if no data
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                        $('#output').text('An error occurred.');
+                        $('#upload-success').hide(); // Hide success message on error
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

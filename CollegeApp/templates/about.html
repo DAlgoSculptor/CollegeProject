@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - NutriScan{% endblock title %}
+
+{% block body %}
+<div class="about-section">
+    <h1>About NutriScan</h1>
+    <p>NutriScan is a revolutionary platform designed to help users make informed decisions about the food they consume. Our goal is to provide a simple and effective way to identify harmful ingredients in products, ensuring a healthier lifestyle.</p>
+    
+    <div class="interactive-content">
+        <div class="card card-mission">
+            <h2>Our Mission</h2>
+            <p>We aim to empower individuals by giving them the tools to scan and analyze food items for potentially harmful chemicals. With NutriScan, you're one scan away from a healthier choice.</p>
+        </div>
+        <div class="card card-how-it-works">
+            <h2>How It Works</h2>
+            <p>Using advanced image recognition technology, NutriScan scans product labels and identifies harmful ingredients that could be detrimental to your health. Our database is regularly updated to ensure you get the most accurate information.</p>
+        </div>
+        <div class="card card-team">
+            <h2>Our Team</h2>
+            <p>We are a group of passionate developers, nutritionists, and health experts committed to creating a healthier world. Our combined expertise allows us to offer a cutting-edge platform that is user-friendly and highly effective.</p>
+        </div>
+        <div class="card card-vision">
+            <h2>Our Vision</h2>
+            <p>Our vision is to lead the way in food safety by providing innovative solutions that enhance public health. We are dedicated to creating a future where every individual can make safe and informed food choices.</p>
+        </div>
+        <div class="card card-partnerships">
+            <h2>Partnerships</h2>
+            <p>We collaborate with various organizations and experts in the field to continuously improve our platform and expand our database. Our partnerships help us stay at the forefront of food safety technology.</p>
+        </div>
+        <div class="card card-community">
+            <h2>Community Impact</h2>
+            <p>NutriScan is committed to making a positive impact on the community by providing valuable resources and education on healthy eating practices. We aim to support a healthier lifestyle for everyone.</p>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block extra_css %}
+<style>
+    body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    .about-section {
+        padding: 20px;
+        margin: 80px 20px; /* Space below the navbar and room for content */
+        background-color: #ffeef2; /* Light pink background */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        animation: fadeIn 1s ease-in-out, scaleUp 1s ease-in-out;
+    }
+
+    .about-section h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #d32f7f; /* Pinkish color for headings */
+        text-align: center;
+        animation: slideIn 1s ease-out;
+    }
+
+    .interactive-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+    }
+
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 30%;
+        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+        animation: cardFadeIn 1s ease-in-out;
+        color: #ffffff; /* Text color for better contrast */
+    }
+
+    .card:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h2 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+
+    /* Different background colors for each card */
+    .card-mission { background-color: #f06292; } /* Pink */
+    .card-how-it-works { background-color: #ba68c8; } /* Purple */
+    .card-team { background-color: #64b5f6; } /* Blue */
+    .card-vision { background-color: #4db6ac; } /* Teal */
+    .card-partnerships { background-color: #4caf50; } /* Green */
+    .card-community { background-color: #ffb74d; } /* Orange */
+
+    /* Hover effects for each card */
+    .card-mission:hover { background-color: #c2185b; } /* Darker Pink */
+    .card-how-it-works:hover { background-color: #ab47bc; } /* Darker Purple */
+    .card-team:hover { background-color: #42a5f5; } /* Darker Blue */
+    .card-vision:hover { background-color: #26a69a; } /* Darker Teal */
+    .card-partnerships:hover { background-color: #388e3c; } /* Darker Green */
+    .card-community:hover { background-color: #fb8c00; } /* Darker Orange */
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes scaleUp {
+        from { transform: scale(0.95); }
+        to { transform: scale(1); }
+    }
+
+    @keyframes cardFadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+{% endblock extra_css %}

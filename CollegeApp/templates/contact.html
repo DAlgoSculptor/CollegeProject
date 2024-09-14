@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %} Contact {% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Contact Us</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <form id="contactForm">
+                <div class="form-group mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                    <div class="invalid-feedback">
+                        Please provide your name.
+                    </div>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid email address.
+                    </div>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" id="subject" class="form-control" placeholder="Enter the subject" required>
+                    <div class="invalid-feedback">
+                        Please provide a subject.
+                    </div>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+                    <div class="invalid-feedback">
+                        Please provide a message.
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block extra_css %}
+<style>
+    body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .form-label {
+        color: #d32f7f; /* Pink color for labels */
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: #d32f7f;
+        box-shadow: 0 0 0 0.2rem rgba(211, 47, 123, 0.25);
+    }
+
+    .btn-primary {
+        background-color: #d32f7f; /* Pink color for button */
+        border-color: #d32f7f;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #c2185b; /* Darker pink on hover */
+        border-color: #c2185b;
+    }
+
+    .invalid-feedback {
+        display: block;
+        font-size: 0.875em;
+        color: #dc3545;
+    }
+    
+    @media (max-width: 768px) {
+        .form-control {
+            font-size: 0.9em;
+        }
+        
+        .btn-primary {
+            font-size: 0.9em;
+        }
+    }
+</style>
+{% endblock extra_css %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            if (form.checkValidity() === false) {
+                event.stopPropagation();
+            } else {
+                // Handle form submission logic here
+                alert('Form submitted successfully!');
+            }
+            
+            form.classList.add('was-validated');
+        }, false);
+    });
+</script>
+{% endblock extra_js %}

@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+
+{% block title %} Home - NutriScan {% endblock title %}
+
+{% block body %}
+<div class="home-container">
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+        <div class="hero-content">
+            <h1><span class="nutriscan-highlighted">We're </span> glad to have you at <span class="nutriscan-highlight">NuTriScan</span></h1>
+
+            <p>Your ultimate guide to healthier food choices.</p>
+            <a href="/contact" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="icon fas fa-search"></i>
+                        <div class="feature-text">
+                            <h3>Scan Your Food</h3>
+                            <p>Easily upload images of food products and get detailed ingredient analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="icon fas fa-info-circle"></i>
+                        <div class="feature-text">
+                            <h3>Get Informed</h3>
+                            <p>Access accurate information about harmful chemicals and nutritional content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="icon fas fa-heart"></i>
+                        <div class="feature-text">
+                            <h3>Live Healthier</h3>
+                            <p>Make informed choices that support a healthier lifestyle and well-being.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section text-center">
+        <h2>Join Our Community</h2>
+        <p>Be part of a movement towards better health and well-being. Explore, engage, and evolve with us.</p>
+        <a href="https://www.linkedin.com/in/danish-nawaz-86154028a/" class="btn btn-primary btn-lg" onclick="openMultipleLinks(); return false;">Join Now</a>
+    </section>
+</div>
+{% endblock body %}
+
+{% block extra_css %}
+<style>
+    body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        background-color: #0A6847; /* Light background color */
+        font-family: 'Arial', sans-serif;
+        padding-top: 70px;
+    }
+
+    .nutriscan-highlight {
+    color: white; /* Replace with the desired color */
+    
+}
+
+.nutriscan-highlighted {
+    color: white; /* Replace with the desired color */
+    
+}
+
+
+    .home-container {
+        padding: 0 20px;
+    }
+
+    .hero-section {
+        {% comment %} background: url('https://via.placeholder.com/') no-repeat center center; /* Background image */ {% endcomment %}
+        background-size: cover;
+        color: black;
+        padding: 80px 20px;
+        border-radius: 20px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3); /* Dark overlay for readability */
+        z-index: 0;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-section p {
+        font-size: 1.3em;
+        margin-bottom: 30px;
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .btn-primary {
+        background-color: #B3E2A7; /* Blue color for button */
+        border-color: #007bff;
+        transition: background-color 0.3s, border-color 0.3s;
+        animation: bounce 2s infinite;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        border-color: #0056b3;
+    }
+
+    .features-section {
+        margin-bottom: 40px;
+    }
+
+    .feature {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        margin: 20px 0;
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        align-items: center;
+        animation: fadeInUp 2s ease-out;
+    }
+
+    .feature:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .feature .icon {
+        font-size: 3em;
+        color: #007bff; /* Blue color for icons */
+        margin-right: 20px;
+    }
+
+    .feature-text h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .feature-text p {
+        color: #666;
+        font-size: 1.1em;
+    }
+
+    .cta-section {
+        background: #0A6847; /* Blue background */
+        color: #fff;
+        padding: 60px 20px;
+        border-radius: 20px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-section h2 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+    }
+
+    .cta-section p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0.1;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-10px);
+        }
+        60% {
+            transform: translateY(-5px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section h1 {
+            font-size: 2.5em;
+        }
+
+        .hero-section p, .cta-section p {
+            font-size: 1em;
+        }
+    }
+</style>
+{% endblock extra_css %}
+
+{% block extra_js %}
+{% endblock extra_js %}

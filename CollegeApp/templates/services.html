@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %} Services {% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4 gradient-text">Our Services</h1>
+
+    <div class="row">
+        <!-- Ice Cream Service -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card glass-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-ice-cream service-icon"></i>
+                    <h5 class="card-title">Ice Cream</h5>
+                    <p class="card-text">Indulge in our variety of delicious ice cream flavors. Each flavor is crafted with high-quality ingredients for the perfect treat.</p>
+                    <a href="/home" class="btn btn-outline-gradient">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lollipop Service -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card glass-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-candy-cane service-icon"></i>
+                    <h5 class="card-title">Lollipop</h5>
+                    <p class="card-text">Our lollipops come in a range of fun and exciting flavors. Perfect for kids and adults alike, they're a sweet treat for any occasion.</p>
+                    <a href="/about" class="btn btn-outline-gradient">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Family Pack Service -->
+        <div class="col-md-4 mb-4">
+            <div class="card service-card glass-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-box-open service-icon"></i>
+                    <h5 class="card-title">Family Pack</h5>
+                    <p class="card-text">Our family pack offers great value and variety, with a selection of our most popular items packaged together for the whole family to enjoy.</p>
+                    <a href="/home" class="btn btn-outline-gradient">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="text-center mt-5">
+        <h2 class="gradient-text">Want to Know More?</h2>
+        <p>Explore our full range of products and services. Join us today!</p>
+        <a href="/contact" class="btn btn-lg btn-gradient">Contact Us</a>
+    </div>
+</div>
+{% endblock body %}
+
+{% block extra_css %}
+<style>
+    /* Ensure no horizontal scrolling */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Gradient Text for Title */
+    .gradient-text {
+        background: linear-gradient(90deg, #ff6e7f 0%, #bfe9ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Glassmorphism Card Effect */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        transition: transform 0.5s, box-shadow 0.5s;
+        box-sizing: border-box;
+    }
+
+    .glass-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 12px 24px rgba(31, 38, 135, 0.5);
+    }
+
+    /* Card Icons */
+    .service-icon {
+        font-size: 3em;
+        color: #ff6e7f;
+        margin-bottom: 15px;
+        transition: transform 0.5s;
+    }
+
+    .service-card:hover .service-icon {
+        transform: rotate(360deg);
+    }
+
+    /* Button Gradients */
+    .btn-gradient {
+        background: linear-gradient(90deg, #ff6e7f 0%, #bfe9ff 100%);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.1em;
+        border-radius: 50px;
+        transition: box-shadow 0.5s, transform 0.5s;
+        box-sizing: border-box;
+    }
+
+    .btn-outline-gradient {
+        border: 2px solid transparent;
+        background-image: linear-gradient(#fff, #fff), linear-gradient(90deg, #ff6e7f 0%, #bfe9ff 100%);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        border-radius: 50px;
+        color: #ff6e7f;
+        padding: 10px 20px;
+        transition: all 0.5s ease;
+        box-sizing: border-box;
+    }
+
+    .btn-gradient:hover, .btn-outline-gradient:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(255, 110, 127, 0.2);
+    }
+
+    /* Call to Action */
+    .text-center h2 {
+        margin-top: 50px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .service-card {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+{% endblock extra_css %}
+
+{% block extra_js %}
+{% endblock extra_js %}
