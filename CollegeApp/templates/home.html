@@ -59,10 +59,22 @@
 {% endblock body %}
 
 {% block extra_css %}
+{% load static %}
 <style>
     body {
         overflow-x: hidden; /* Prevent horizontal scrolling */
-        background-color: #0A6847; /* Light background color */
+        {% comment %} background-color: hsl(134, 36%, 54%); /* Light background color */ {% endcomment %}
+
+        background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
+        background-size: 300% 300%;
+        animation: neonGradient 10s ease infinite;
+
+    @keyframes neonGradient {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }           
+        opacity: 1;
         font-family: 'Arial', sans-serif;
         padding-top: 70px;
     }
@@ -70,12 +82,12 @@
     .nutriscan-highlight {
     color: white; /* Replace with the desired color */
     
-}
+    }
 
-.nutriscan-highlighted {
-    color: white; /* Replace with the desired color */
-    
-}
+    .nutriscan-highlighted {
+        color: white; /* Replace with the desired color */
+        
+    }
 
 
     .home-container {
@@ -118,12 +130,22 @@
 
     .hero-section p {
         font-size: 1.3em;
+        
         margin-bottom: 30px;
         animation: fadeInUp 1.5s ease-out;
     }
 
     .btn-primary {
-        background-color: #B3E2A7; /* Blue color for button */
+        background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
+        background-size: 300% 300%;
+        animation: neonGradient 10s ease infinite;
+
+    @keyframes neonGradient {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }
+
         border-color: #007bff;
         transition: background-color 0.3s, border-color 0.3s;
         animation: bounce 2s infinite;
@@ -162,17 +184,28 @@
     }
 
     .feature-text h3 {
-        color: #333;
+        color: #4285F4;
         margin-bottom: 10px;
     }
 
     .feature-text p {
         color: #666;
         font-size: 1.1em;
+
+       
     }
 
     .cta-section {
-        background: #0A6847; /* Blue background */
+        background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
+        background-size: 300% 300%;
+        animation: neonGradient 10s ease infinite;
+
+    @keyframes neonGradient {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }
+
         color: #fff;
         padding: 60px 20px;
         border-radius: 20px;
