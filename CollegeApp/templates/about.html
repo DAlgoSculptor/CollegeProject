@@ -40,21 +40,35 @@
 <style>
     body {
         overflow-x: hidden; /* Prevent horizontal scrolling */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        background: linear-gradient(45deg, #ff0099, #ffcc00, #00712D, #DB4437);
+        background-size: 300% 300%;
+        animation: neonGradient 10s ease infinite;
+        opacity: 1;
+        font-family: 'Arial', sans-serif;
+        padding-top: 70px;
+        position: relative; /* Ensure the body is relative for positioning particles */
     }
 
     .about-section {
         padding: 20px;
         margin: 80px 20px; /* Space below the navbar and room for content */
-        background-color: #ffeef2; /* Light pink background */
+        {% comment %} background-color: #ffeef2; /* Light pink background */ {% endcomment %}
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        {% comment %} box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); {% endcomment %}
         animation: fadeIn 1s ease-in-out, scaleUp 1s ease-in-out;
+
+    }
+
+    p{
+        text-align: center;
+        font-weight: bold;
     }
 
     .about-section h1 {
         font-size: 2.5em;
         margin-bottom: 20px;
-        color: #d32f7f; /* Pinkish color for headings */
+        color: dark; /* Pinkish color for headings */
         text-align: center;
         animation: slideIn 1s ease-out;
     }
