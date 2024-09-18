@@ -4,12 +4,15 @@
 
 {% block body %}
 <div class="home-container">
+    <!-- Particles Background -->
+    <div class="particles"></div>
+
     <!-- Hero Section -->
     <header class="hero-section text-center">
         <div class="hero-content">
             <h1><span class="nutriscan-highlighted">We're </span> glad to have you at <span class="nutriscan-highlight">NuTriScan</span></h1>
             <p>Your ultimate guide to healthier food choices.</p>
-            <a href="/contact" class="btn btn-primary btn-lg">Get Started</a>
+            <a href="/Scan" class="btn btn-primary btn-lg">Get Started</a>
         </div>
     </header>
 
@@ -48,11 +51,80 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials-section text-center">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="horizontal-scrollable-testimonials">
+                <div class="testimonial">
+                    <p>"NutriScan has completely transformed how I approach my food choices. The scanning feature is incredibly easy to use and very informative!"</p>
+                    <h4>Dr. Danish Nawaz</h4>
+                    <p>Health Enthusiast</p>
+                </div>
+                <div class="testimonial">
+                    <p>"I love how NutriScan helps me make healthier decisions for my family. The detailed ingredient analysis is a game-changer!"</p>
+                    <h4>Dr. Ajaj Ali</h4>
+                    <p>Concerned Parent</p>
+                </div>
+                <div class="testimonial">
+                    <p>"The user interface is sleek and intuitive. I appreciate how quickly I can get information about the products I consume."</p>
+                    <h4>Dr. Navikant Thakur</h4>
+                    <p>Fitness Trainer</p>
+                </div>
+                <!-- More testimonials -->
+                <div class="testimonial">
+                    <p>"NutriScan has become an essential tool in my kitchen. It’s incredibly accurate and easy to use."</p>
+                    <h4>Maria Gomez</h4>
+                    <p>Chef</p>
+                </div>
+                <div class="testimonial">
+                    <p>"As a nutritionist, I find NutriScan to be a fantastic resource for my clients. The detailed scans help them make better choices."</p>
+                    <h4>John Smith</h4>
+                    <p>Nutritionist</p>
+                </div>
+                <div class="testimonial">
+                    <p>"I’ve been using NutriScan for a few months now, and I’m impressed by its accuracy and ease of use. Highly recommend!"</p>
+                    <h4>Emily Johnson</h4>
+                    <p>Fitness Enthusiast</p>
+                </div>
+                <div class="testimonial">
+                    <p>"NutriScan is a game-changer! I can now easily avoid harmful ingredients in my food."</p>
+                    <h4>Oliver Lee</h4>
+                    <p>Health Coach</p>
+                </div>
+                <!-- Add more testimonials as needed -->
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action Section -->
     <section class="cta-section text-center">
         <h2>Join Our Community</h2>
         <p>Be part of a movement towards better health and well-being. Explore, engage, and evolve with us.</p>
         <a href="https://www.linkedin.com/in/danish-nawaz-86154028a/" class="btn btn-primary btn-lg" onclick="openMultipleLinks(); return false;">Join Now</a>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3 class="faq-question">What is NutriScan?</h3>
+                <p class="faq-answer">NutriScan is an advanced tool designed to help you make healthier food choices by providing detailed ingredient analysis of the products you consume.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">How does the scanning feature work?</h3>
+                <p class="faq-answer">You simply upload an image of the food product, and NutriScan analyzes the ingredients to provide you with information about harmful chemicals and nutritional content.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Is NutriScan free to use?</h3>
+                <p class="faq-answer">NutriScan offers both free and premium options. The free version provides basic functionality, while the premium version offers additional features and more detailed analysis.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">How can I contact support?</h3>
+                <p class="faq-answer">You can reach out to our support team via the Contact page on our website or email us directly at support@nutriscan.com.</p>
+            </div>
+        </div>
     </section>
 </div>
 {% endblock body %}
@@ -62,32 +134,13 @@
 <style>
     body {
         overflow-x: hidden; /* Prevent horizontal scrolling */
-        background: linear-gradient(45deg, #ff0099, #5A639C, #5A639C);
+        background: linear-gradient(45deg, #ff0099, #ffcc00, #00712D, #DB4437);
         background-size: 300% 300%;
         animation: neonGradient 10s ease infinite;
-
         opacity: 1;
         font-family: 'Arial', sans-serif;
         padding-top: 70px;
-    }
-
-    /* Custom Scrollbar Styles */
-    ::-webkit-scrollbar {
-        width: 12px; /* Width of the scrollbar */
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #06D001; /* Background of the scrollbar track */
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: #06D001; /* Color of the scrollbar thumb */
-        border-radius: 50px; /* Rounder edges for the thumb */
-        border: 3px solid #f1f1f1; /* Padding around the thumb */
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background-color: #555; /* Darker color when hovering */
+        position: relative; /* Ensure the body is relative for positioning particles */
     }
 
     .nutriscan-highlight, .nutriscan-highlighted {
@@ -96,6 +149,8 @@
 
     .home-container {
         padding: 0 20px;
+        position: relative; /* Ensure container is relative for particle positioning */
+        z-index: 2; /* Ensure content is above the particles */
     }
 
     .hero-section {
@@ -112,6 +167,7 @@
     .hero-content {
         position: relative;
         z-index: 1;
+        background-color: transparent;
     }
 
     .hero-section::before {
@@ -123,28 +179,29 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.3); /* Dark overlay for readability */
         z-index: 0;
+        background-color: transparent;
     }
 
     .hero-section h1 {
         font-size: 3.5em;
         margin-bottom: 20px;
         animation: fadeInUp 1s ease-out;
+        background-color: transparent;
     }
 
     .hero-section p {
         font-size: 1.3em;
         margin-bottom: 30px;
         animation: fadeInUp 1.5s ease-out;
+        background-color: transparent;
     }
 
     .btn-primary {
         background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
         background-size: 300% 300%;
         animation: neonGradient 10s ease infinite;
-
         border-color: #007bff;
-        transition: background-color 0.3s, border-color 0.3s;
-        animation: bounce 2s infinite;
+        transition: background-color transparent;
     }
 
     .btn-primary:hover {
@@ -189,35 +246,71 @@
         font-size: 1.1em;
     }
 
-    .cta-section {
-        background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
-        background-size: 300% 300%;
-        animation: neonGradient 10s ease infinite;
-        color: #fff;
+    .testimonials-section {
+        background-color: #f9f9f9;
         padding: 60px 20px;
         border-radius: 20px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
     }
-
-    .cta-section h2 {
+    
+    .testimonials-section h2 {
         font-size: 3.5em;
         margin-bottom: 20px;
+        animation: fadeInUp 1s ease-out;
     }
-
-    .cta-section p {
+    
+    .horizontal-scrollable-testimonials {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+        scroll-snap-type: x mandatory;
+        gap: 20px; /* Space between testimonials */
+        animation: fadeInUp 2s ease-out;
+    }
+    
+    .testimonial {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        flex: 0 0 300px;
+        scroll-snap-align: start;
+        margin-right: 20px;
+        opacity: 0;
+        animation: fadeIn 1s ease-out forwards;
+        transition: transform 0.3s, box-shadow 0.2s;
+    }
+    
+    .testimonial:nth-child(odd) {
+        animation-delay: 0.5s;
+    }
+    
+    .testimonial:nth-child(even) {
+        animation-delay: 1s;
+    }
+    
+    .testimonial:hover {
+        transform: scale(1.05);
+        box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.3);
+    }
+    
+    .testimonial h4 {
+        font-size: 1.5em;
+        font-website: bold;
+        color: green;
+    }
+    
+    .testimonial p {
         font-size: 1.2em;
-        margin-bottom: 30px;
+        color: #666;
     }
-
-    @keyframes neonGradient {
-        0% { background-position: 0% 0%; }
-        50% { background-position: 100% 100%; }
-        100% { background-position: 0% 0%; }
-    }
-
-    @keyframes fadeInUp {
+    
+    @keyframes fadeIn {
         from {
-            opacity: 0.1;
+            opacity: 0;
             transform: translateY(20px);
         }
         to {
@@ -225,30 +318,91 @@
             transform: translateY(0);
         }
     }
-
-    @keyframes bounce {
-        0%, 20%, 50%, 80%, 100% {
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
             transform: translateY(0);
         }
-        40% {
-            transform: translateY(-10px);
+    }
+    
+
+    .cta-section {
+        padding: 60px 20px;
+        background-color: transparent; /* Remove background color to avoid box format */
+        color: #333;
+        text-align: center;
+        border-radius: 0; /* Remove border-radius to avoid box format */
+        box-shadow: none; /* Remove box-shadow */
+        margin: 0; /* Remove margins if necessary */
+    }
+
+    .faq-section {
+        padding: 40px 20px;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-bottom: 40px;
+    }
+
+    .faq-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+    }
+
+    .faq-item {
+        margin-bottom: 20px;
+    }
+
+    .faq-question {
+        font-size: 1.5em;
+        color: #007bff;
+    }
+
+    .faq-answer {
+        font-size: 1.2em;
+        color: #666;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
         }
-        60% {
-            transform: translateY(-5px);
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 
-    @media (max-width: 768px) {
-        .hero-section h1 {
-            font-size: 2.5em;
+    @keyframes neonGradient {
+        0% {
+            background-position: 0% 50%;
         }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
 
-        .hero-section p, .cta-section p {
-            font-size: 1em;
-        }
+    /* Custom scrollbar for horizontal scrolling */
+    .horizontal-scrollable-testimonials::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .horizontal-scrollable-testimonials::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    .horizontal-scrollable-testimonials::-webkit-scrollbar-track {
+        background: transparent;
     }
 </style>
 {% endblock extra_css %}
-
-{% block extra_js %}
-{% endblock extra_js %}
