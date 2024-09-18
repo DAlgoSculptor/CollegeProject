@@ -8,7 +8,6 @@
     <header class="hero-section text-center">
         <div class="hero-content">
             <h1><span class="nutriscan-highlighted">We're </span> glad to have you at <span class="nutriscan-highlight">NuTriScan</span></h1>
-
             <p>Your ultimate guide to healthier food choices.</p>
             <a href="/contact" class="btn btn-primary btn-lg">Get Started</a>
         </div>
@@ -63,39 +62,43 @@
 <style>
     body {
         overflow-x: hidden; /* Prevent horizontal scrolling */
-        {% comment %} background-color: hsl(134, 36%, 54%); /* Light background color */ {% endcomment %}
-
         background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
         background-size: 300% 300%;
         animation: neonGradient 10s ease infinite;
 
-    @keyframes neonGradient {
-        0% { background-position: 0% 0%; }
-        50% { background-position: 100% 100%; }
-        100% { background-position: 0% 0%; }
-    }           
         opacity: 1;
         font-family: 'Arial', sans-serif;
         padding-top: 70px;
     }
 
-    .nutriscan-highlight {
-    color: white; /* Replace with the desired color */
-    
+    /* Custom Scrollbar Styles */
+    ::-webkit-scrollbar {
+        width: 12px; /* Width of the scrollbar */
     }
 
-    .nutriscan-highlighted {
+    ::-webkit-scrollbar-track {
+        background: #800000; /* Background of the scrollbar track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #800000; /* Color of the scrollbar thumb */
+        border-radius: 6px; /* Rounder edges for the thumb */
+        border: 3px solid #f1f1f1; /* Padding around the thumb */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Darker color when hovering */
+    }
+
+    .nutriscan-highlight, .nutriscan-highlighted {
         color: white; /* Replace with the desired color */
-        
     }
-
 
     .home-container {
         padding: 0 20px;
     }
 
     .hero-section {
-        {% comment %} background: url('https://via.placeholder.com/') no-repeat center center; /* Background image */ {% endcomment %}
         background-size: cover;
         color: black;
         padding: 80px 20px;
@@ -130,7 +133,6 @@
 
     .hero-section p {
         font-size: 1.3em;
-        
         margin-bottom: 30px;
         animation: fadeInUp 1.5s ease-out;
     }
@@ -139,12 +141,6 @@
         background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
         background-size: 300% 300%;
         animation: neonGradient 10s ease infinite;
-
-    @keyframes neonGradient {
-        0% { background-position: 0% 0%; }
-        50% { background-position: 100% 100%; }
-        100% { background-position: 0% 0%; }
-    }
 
         border-color: #007bff;
         transition: background-color 0.3s, border-color 0.3s;
@@ -191,21 +187,12 @@
     .feature-text p {
         color: #666;
         font-size: 1.1em;
-
-       
     }
 
     .cta-section {
         background: linear-gradient(45deg, #ff0099, #ffcc00, #00ff99);
         background-size: 300% 300%;
         animation: neonGradient 10s ease infinite;
-
-    @keyframes neonGradient {
-        0% { background-position: 0% 0%; }
-        50% { background-position: 100% 100%; }
-        100% { background-position: 0% 0%; }
-    }
-
         color: #fff;
         padding: 60px 20px;
         border-radius: 20px;
@@ -220,6 +207,12 @@
     .cta-section p {
         font-size: 1.2em;
         margin-bottom: 30px;
+    }
+
+    @keyframes neonGradient {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
     }
 
     @keyframes fadeInUp {
