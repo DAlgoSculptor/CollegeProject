@@ -10,7 +10,7 @@
     <!-- Hero Section -->
     <header class="hero-section text-center">
         <div class="hero-content">
-            <h1><span class="nutriscan-highlighted">We're </span> glad to have you at <span class="nutriscan-highlight">NTriScan</span></h1>
+            <h1><span class="nutriscan-highlighted">We're </span> glad to have you at <span class="nutriscan-highlight">NuTriScan</span></h1>
             <p>Your ultimate guide to healthier food choices.</p>
             <a href="/Scan" class="btn btn-primary btn-lg">Get Started</a>
         </div>
@@ -24,6 +24,8 @@
                     <div class="feature">
                         <i class="icon fas fa-search"></i>
                         <div class="feature-text">
+                            {% comment %} <img src="path/to/your/image.jpg" alt="Scan Your Food" class="feature-image"> {% endcomment %}
+
                             <h3>Scan Your Food</h3>
                             <p>Easily upload images of food products and get detailed ingredient analysis.</p>
                         </div>
@@ -134,7 +136,8 @@
 <style>
     body {
         overflow-x: hidden; /* Prevent horizontal scrolling */
-        background: linear-gradient(45deg, #ff0099, #ffcc00, #00712D, #DB4437);
+        {% comment %} background: linear-gradient(45deg, Black); {% endcomment %}
+        background-color: #202124;
         background-size: 300% 300%;
         animation: neonGradient 10s ease infinite;
         opacity: 1;
@@ -155,14 +158,32 @@
 
     .hero-section {
         background-size: cover;
-        color: black;
-        padding: 80px 20px;
+        background-color: black;
+        {% comment %} background-image: url(Nn.png) {% endcomment %}
+        color: white;
+        padding: 180px 120px;
         border-radius: 20px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         margin-bottom: 40px;
         position: relative;
         overflow: hidden;
     }
+
+    .hero-section:hover{
+        border-top: 3px solid white;    /* Top border color */
+        border-right: 3px solid white;  /* Right border color */
+        border-bottom: 3px solid white; /* Bottom border color */
+        border-left: 3px solid white;  /* Left border color */
+
+        transition: border 0.6s ease, box-shadow 0.4s ease; /* Smooth transition */
+
+        box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.3), /* Top-left cyan glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1), /* Top-right magenta glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1),   /* Bottom-left lime glow */
+                    0 0 25px 10px rgba(255, 225, 255, 0.1); /* Bottom-right orange glow */
+    }
+
+    
 
     .hero-content {
         position: relative;
@@ -171,6 +192,7 @@
     }
 
     .hero-section::before {
+
         content: "";
         position: absolute;
         top: 0;
@@ -193,7 +215,7 @@
         font-size: 1.3em;
         margin-bottom: 30px;
         animation: fadeInUp 1.5s ease-out;
-         background-color: transparent;
+        background-color: transparent;
     }
 
     .btn-primary {
@@ -214,20 +236,31 @@
     }
 
     .feature {
-        background-color: #fff;
-        border-radius: 15px;
+        background-color: black;
+        border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 20px;
-        margin: 20px 0;
-        transition: transform 0.3s, box-shadow 0.3s;
+        padding: 120px;
+        margin: 120px 0;
+        transition: transform 0.4s, box-shadow 0.3s;
         display: flex;
         align-items: center;
-        animation: fadeInUp 4s ease-out;
+        {% comment %} animation: fadeInUp 4s ease-out; {% endcomment %}
     }
 
     .feature:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        {% comment %} transform: translateY(-10px); {% endcomment %}
+        {% comment %} box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); {% endcomment %}
+        transition: border 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+
+        border-top: 3px solid white;    /* Top border color */
+        border-right: 3px solid white;  /* Right border color */
+        border-bottom: 3px solid white; /* Bottom border color */
+        border-left: 3px solid white;  /* Left border color */
+
+        box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.1), /* Top-left cyan glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1), /* Top-right magenta glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1),   /* Bottom-left lime glow */
+                    0 0 25px 10px rgba(255, 225, 255, 0.1); /* Bottom-right orange glow */
     }
 
     .feature .icon {
@@ -247,32 +280,50 @@
     }
 
     .testimonials-section {
-        background-color: #f9f9f9;
+        background-color: black;
         padding: 60px 20px;
+        border-top: 3px solid white;    /* Top border color */
+        border-right: 3px solid white;  /* Right border color */
+        border-bottom: 3px solid white; /* Bottom border color */
+        border-left: 3px solid white;  /* Left border color */
         border-radius: 20px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         margin-bottom: 40px;
         position: relative;
         overflow: hidden;
+        transition: border 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
     }
     
+
+    .testimonials-section:hover {
+        box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.1), /* Top-left cyan glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1), /* Top-right magenta glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1),   /* Bottom-left lime glow */
+                    0 0 25px 10px rgba(255, 225, 255, 0.1); /* Bottom-right orange glow */
+    }
     .testimonials-section h2 {
         font-size: 3.5em;
+        color: white;
         margin-bottom: 20px;
         animation: fadeInUp 1s ease-out;
     }
     
     .horizontal-scrollable-testimonials {
         display: flex;
+        color: white; /* Text color */
         overflow-x: auto;
         padding: 10px;
         scroll-snap-type: x mandatory;
         gap: 20px; /* Space between testimonials */
         animation: fadeInUp 2s ease-out;
+        transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
     }
     
+    
+    
+    
     .testimonial {
-        background-color: #fff;
+        background-color: black;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
@@ -282,6 +333,10 @@
         opacity: 0;
         animation: fadeIn 1s ease-out forwards;
         transition: transform 0.3s, box-shadow 0.2s;
+    }
+
+    .testimonial:hover{
+        border-color: white;
     }
     
     .testimonial:nth-child(odd) {
@@ -343,10 +398,29 @@
 
     .faq-section {
         padding: 40px 20px;
-        background-color: #f1f1f1;
+        background-color: black;
+        border-top: 3px solid white;    /* Top border color */
+        border-right: 3px solid white;  /* Right border color */
+        border-bottom: 3px solid white; /* Bottom border color */
+        border-left: 3px solid white;  /* Left border color */
+        border-radius: 20px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+        transition: border 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         margin-bottom: 40px;
+    }
+
+    .faq-section:hover{
+        box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.1), /* Top-left cyan glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1), /* Top-right magenta glow */
+                    0 0 25px 10px rgba(255, 255, 255, 0.1),   /* Bottom-left lime glow */
+                    0 0 25px 10px rgba(255, 165, 255, 0.1); /* Bottom-right orange glow */
+
     }
 
     .faq-section h2 {
