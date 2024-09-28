@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shadcn-ui@latest/dist/shadcn.css">
+    <title>NutriScan Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background-color: #f8fafc; /* Light background */
+        }
+    </style>
+</head>
+<body class="flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 flex justify-between items-center">
+        <h1 class="text-white text-2xl font-semibold">NutriScan Dashboard</h1>
+        <div class="flex space-x-4">
+            <a href="#" class="text-white hover:text-gray-200">Home</a>
+            <a href="#" class="text-white hover:text-gray-200">Services</a>
+            <a href="#" class="text-white hover:text-gray-200">About</a>
+            <a href="#" class="text-white hover:text-gray-200">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex flex-grow p-4 space-x-4">
+        <!-- Sidebar -->
+        <aside class="w-1/4 bg-white rounded-lg shadow-md p-4">
+            <h2 class="font-semibold text-lg mb-2">Filters</h2>
+            <input type="text" placeholder="Search" class="border rounded-md p-2 mb-4 w-full">
+            <h3 class="font-semibold text-md mb-2">Categories</h3>
+            <ul class="space-y-2">
+                <li><a href="#" class="text-blue-600 hover:underline">Fruits</a></li>
+                <li><a href="#" class="text-blue-600 hover:underline">Vegetables</a></li>
+                <li><a href="#" class="text-blue-600 hover:underline">Dairy</a></li>
+                <li><a href="#" class="text-blue-600 hover:underline">Grains</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Dashboard Area -->
+        <div class="flex-1 bg-white rounded-lg shadow-md p-4">
+            <h2 class="font-semibold text-xl mb-4">Dashboard Overview</h2>
+
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <!-- Card 1 -->
+                <div class="bg-green-100 rounded-lg p-4 shadow">
+                    <h3 class="font-semibold text-lg">Total Scans</h3>
+                    <p class="text-2xl">250</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-yellow-100 rounded-lg p-4 shadow">
+                    <h3 class="font-semibold text-lg">Harmful Ingredients Detected</h3>
+                    <p class="text-2xl">30</p>
+                </div>
+            </div>
+
+            <canvas id="myChart" class="mb-4"></canvas>
+
+            <h2 class="font-semibold text-lg mb-2">Recent Scans</h2>
+            <table class="min-w-full border border-gray-300">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="border px-4 py-2">Product</th>
+                        <th class="border px-4 py-2">Date</th>
+                        <th class="border px-4 py-2">Result</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2">Product A</td>
+                        <td class="border px-4 py-2">2024-09-01</td>
+                        <td class="border px-4 py-2">Safe</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">Product B</td>
+                        <td class="border px-4 py-2">2024-09-02</td>
+                        <td class="border px-4 py-2">Unsafe</td>
+                    </tr>
+                    <tr>
+                        <td class="border px-4 py-2">Product C</td>
+                        <td class="border px-4 py-2">2024-09-03</td>
+                        <td class="border px-4 py-2">Safe</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: '# of Scans',
+                    data: [12, 19, 3, 5, 2, 3, 7],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

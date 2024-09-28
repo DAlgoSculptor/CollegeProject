@@ -10,10 +10,11 @@
     <!-- Hero Section -->
     <header class="hero-section text-center">
         <div class="hero-content">
-            <h1><span class="nutriscan-highlighted">We're </span> glad to have you at <span class="nutriscan-highlight">NuTriScan</span></h1>
+            <h1>We're </span> glad to have you at <span class="nutriscan-highlight">NuTriScan</span></h1>
             <p>Your ultimate guide to healthier food choices.</p>
             <a href="/Scan" class="btn btn-primary btn-lg">Get Started</a>
         </div>
+        
     </header>
 
     <!-- Features Section -->
@@ -25,6 +26,7 @@
                         <i class="icon fas fa-search"></i>
                         <div class="feature-text">
                             {% comment %} <img src="path/to/your/image.jpg" alt="Scan Your Food" class="feature-image"> {% endcomment %}
+                            
 
                             <h3>Scan Your Food</h3>
                             <p>Easily upload images of food products and get detailed ingredient analysis.</p>
@@ -60,38 +62,38 @@
             <div class="horizontal-scrollable-testimonials">
                 <div class="testimonial">
                     <p>"NutriScan has completely transformed how I approach my food choices. The scanning feature is incredibly easy to use and very informative!"</p>
-                    <h4>Dr. Danish Nawaz</h4>
+                    <h4>Er. Danish Nawaz</h4>
                     <p>Health Enthusiast</p>
                 </div>
                 <div class="testimonial">
                     <p>"I love how NutriScan helps me make healthier decisions for my family. The detailed ingredient analysis is a game-changer!"</p>
-                    <h4>Dr. Ajaj Ali</h4>
+                    <h4>Er. Ajaj Ali</h4>
                     <p>Concerned Parent</p>
                 </div>
                 <div class="testimonial">
                     <p>"The user interface is sleek and intuitive. I appreciate how quickly I can get information about the products I consume."</p>
-                    <h4>Dr. Navikant Thakur</h4>
+                    <h4>Er. Navikant Thakur</h4>
                     <p>Fitness Trainer</p>
                 </div>
                 <!-- More testimonials -->
                 <div class="testimonial">
                     <p>"NutriScan has become an essential tool in my kitchen. It’s incredibly accurate and easy to use."</p>
-                    <h4>Maria Gomez</h4>
+                    <h4>Er. Kalimullah Ansari</h4>
                     <p>Chef</p>
                 </div>
                 <div class="testimonial">
                     <p>"As a nutritionist, I find NutriScan to be a fantastic resource for my clients. The detailed scans help them make better choices."</p>
-                    <h4>John Smith</h4>
+                    <h4>Er. Mokarram Ali</h4>
                     <p>Nutritionist</p>
                 </div>
                 <div class="testimonial">
                     <p>"I’ve been using NutriScan for a few months now, and I’m impressed by its accuracy and ease of use. Highly recommend!"</p>
-                    <h4>Emily Johnson</h4>
+                    <h4>Er. Ankit Kumar</h4>
                     <p>Fitness Enthusiast</p>
                 </div>
                 <div class="testimonial">
                     <p>"NutriScan is a game-changer! I can now easily avoid harmful ingredients in my food."</p>
-                    <h4>Oliver Lee</h4>
+                    <h4>Er. Ashutosh Kumar</h4>
                     <p>Health Coach</p>
                 </div>
                 <!-- Add more testimonials as needed -->
@@ -157,16 +159,21 @@
     }
 
     .hero-section {
+        
         background-size: cover;
         background-color: black;
-        {% comment %} background-image: url(Nn.png) {% endcomment %}
         color: white;
         padding: 180px 120px;
+        border-top: 3px solid white;    /* Top border color */
+        border-right: 3px solid white;  /* Right border color */
+        border-bottom: 3px solid white; /* Bottom border color */
+        border-left: 3px solid white;  /* Left border color */
         border-radius: 20px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         margin-bottom: 40px;
         position: relative;
         overflow: hidden;
+        transition: border 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
     }
 
     .hero-section:hover{
@@ -190,6 +197,9 @@
         z-index: 1;
         background-color: transparent;
     }
+    .hero-content:hover{
+        color: red;
+    }
 
     .hero-section::before {
 
@@ -209,6 +219,9 @@
         margin-bottom: 20px;
         animation: fadeInUp 1s ease-out;
         background-color: transparent;
+    }
+    .hero-section h1:hover{
+        color:red;
     }
 
     .hero-section p {
@@ -232,19 +245,22 @@
     }
 
     .features-section {
-        margin-bottom: 40px;
+        margin-bottom: 200px;
     }
 
     .feature {
+
         background-color: black;
+        border: 2px solid #1BFFFF;
+
         border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 120px;
         margin: 120px 0;
         transition: transform 0.4s, box-shadow 0.3s;
         display: flex;
         align-items: center;
-        {% comment %} animation: fadeInUp 4s ease-out; {% endcomment %}
+        animation: fadeInUp 1s ease-in;
     }
 
     .feature:hover {
@@ -263,21 +279,50 @@
                     0 0 25px 10px rgba(255, 225, 255, 0.1); /* Bottom-right orange glow */
     }
 
+    .feature {
+        display: flex;
+        align-items: center; /* Vertically aligns the content */
+        justify-content: flex-start; /* Aligns everything to the left */
+        padding: 20px; /* Adds padding for spacing inside the container */
+    }
+    
     .feature .icon {
         font-size: 3em;
-        color: #007bff; /* Blue color for icons */
-        margin-right: 20px;
+        color: #007bff;
+        margin-right: 20px; /* Adds space between icon and text */
+        
     }
-
+    
+    .feature-text {
+        text-align: left; /* Aligns the text fully to the left */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertically centers the text content */
+        max-width: 400px; /* Limits the width of the text block */
+    }
+    
     .feature-text h3 {
-        color: #4285F4;
+        font-size: 1.5em;
         margin-bottom: 10px;
+        color: white; /* Adjusts heading color */
+        text-align:center;
     }
-
+    
     .feature-text p {
-        color: #666;
         font-size: 1.1em;
+        color: red;
+        margin-bottom: 350px; /* Adds space between paragraphs */
+        line-height: 1.6; /* Improves readability with line height */
+        text-align: left;
     }
+    
+    .feature-text p:hover {
+        color: #f5f5f5; /* Changes text color on hover */
+    }
+    
+    
+    
 
     .testimonials-section {
         background-color: black;
@@ -325,15 +370,17 @@
     .testimonial {
         background-color: black;
         border-radius: 10px;
+        border: 2px solid #4CAF50; /* Add your desired border color here */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         padding: 20px;
         flex: 0 0 300px;
         scroll-snap-align: start;
         margin-right: 20px;
-        opacity: 0;
+        opacity: 1;
         animation: fadeIn 1s ease-out forwards;
         transition: transform 0.3s, box-shadow 0.2s;
     }
+    
 
     .testimonial:hover{
         border-color: white;
@@ -355,12 +402,12 @@
     .testimonial h4 {
         font-size: 1.5em;
         font-website: bold;
-        color: green;
+        color: red;
     }
     
     .testimonial p {
         font-size: 1.2em;
-        color: #666;
+        color: white;
     }
     
     @keyframes fadeIn {
@@ -389,7 +436,7 @@
     .cta-section {
         padding: 60px 20px;
         background-color: transparent; /* Remove background color to avoid box format */
-        color: #333;
+        color: white;
         text-align: center;
         border-radius: 0; /* Remove border-radius to avoid box format */
         box-shadow: none; /* Remove box-shadow */
@@ -434,12 +481,12 @@
 
     .faq-question {
         font-size: 1.5em;
-        color: #007bff;
+        color: white;
     }
 
     .faq-answer {
         font-size: 1.2em;
-        color: #666;
+        color: green;
     }
 
     @keyframes fadeInUp {
@@ -465,18 +512,5 @@
         }
     }
 
-    /* Custom scrollbar for horizontal scrolling */
-    .horizontal-scrollable-testimonials::-webkit-scrollbar {
-        height: 8px;
-    }
-
-    .horizontal-scrollable-testimonials::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-    }
-
-    .horizontal-scrollable-testimonials::-webkit-scrollbar-track {
-        background: transparent;
-    }
 </style>
 {% endblock extra_css %}
