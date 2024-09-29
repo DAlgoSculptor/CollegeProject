@@ -5,7 +5,7 @@
             "src": "CollegeProject/wsgi.py",
             "use": "@vercel/python",
             "config": {
-                "maxLambdaSize": "15mb",
+                "maxLambdaSize": "15000000",
                 "runtime": "python3.9"
             }
         },
