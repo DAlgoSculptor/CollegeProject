@@ -7,78 +7,7 @@
     <title>{% block title %}{% endblock title %} Danish Nawaz</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     {% block extra_css %}
-    <style>
-        body {
-            padding-top: 56px; /* Adjusted for navbar height */
-        }
 
-        .navbar {
-            background-color: #007bff; /* Navbar background color */
-            font-weight:400;
-        }
-
-        .navbar-brand {
-        margin-left: 50px; /* Position the brand slightly to the right */
-        color: black; /* Black color for brand text */
-        }
-
-        .navbar-brand:hover {
-            color: #e0e0e0; /* Lighter color on hover */
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff; /* White color for nav links */
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #e0e0e0; /* Lighter color on hover */
-        }
-
-        .navbar-toggler {
-            border-color: #ffffff; /* White border color for the toggler */
-        }
-
-        .navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"%3E%3Cpath stroke="%23ffffff" stroke-width="2" d="M5 7h20M5 15h20M5 23h20"/%3E%3C/svg%3E');
-        }
-
-        .dropdown-menu {
-            background-color: #007bff; /* Dropdown menu background color */
-        }
-
-        .dropdown-item {
-            color: #ffffff; /* Dropdown item text color */
-        }
-
-        .dropdown-item:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Hover effect for dropdown items */
-        }
-
-        .form-control {
-            width: 200px; /* Fixed width for search input */
-        }
-
-        .btn-outline-success {
-            color: #007bff; /* Button text color */
-            border-color: #007bff; /* Button border color */
-        }
-
-        .btn-outline-success:hover {
-            background-color: #007bff; /* Button hover background color */
-            color: white; /* Button hover text color */
-        }
-
-        /* Adjust for mobile */
-        @media (max-width: 768px) {
-            .navbar-brand {
-                margin-left: 0; /* Remove margin on smaller screens */
-            }
-
-            .d-flex.ms-4 {
-                margin-left: 0; /* Remove margin for search form on smaller screens */
-            }
-        }
-    </style>
     {% endblock extra_css %}
 </head>
 <body>
@@ -86,7 +15,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/home">NuTriScan</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

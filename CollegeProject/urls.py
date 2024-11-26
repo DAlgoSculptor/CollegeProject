@@ -32,6 +32,5 @@ urlpatterns = [
     path('contact/' , views.contact , name='contact'),
     path('Scan/' , views.Scan , name='contact'),
     path('upload_and_scan_image/', views.upload_and_scan_image, name='upload_and_scan_image'),
- 
 
 ]
